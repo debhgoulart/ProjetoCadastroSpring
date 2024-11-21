@@ -2,8 +2,6 @@ package com.cadastro.demo.entidades;
 
 import com.cadastro.demo.dto.DadosAtualizarUsuario;
 import com.cadastro.demo.dto.DadosCadastroUsuario;
-import com.cadastro.demo.dto.DadosEndereco;
-import com.cadastro.demo.dto.DadosUsuario;
 import jakarta.persistence.*;
 
 @Entity
@@ -17,6 +15,7 @@ public class Usuario {
     private String email;
     private String telefone;
     private String senha;
+    private boolean ativo;
 
     @Embedded
     private Endereco endereco;
@@ -24,14 +23,16 @@ public class Usuario {
     public Usuario() {
     }
 
-    public Usuario(String nome, String email, String telefone, String senha) {
+    public Usuario(String nome, String email, String telefone, String senha, boolean ativo) {
         this.nome = nome;
         this.email = email;
         this.telefone = telefone;
         this.senha = senha;
+        this.ativo = ativo;
     }
 
     public Usuario(DadosCadastroUsuario dados) {
+        this.ativo = true;
         this.nome = dados.nome();
         this.email = dados.email();
         this.telefone = dados.telefone();
@@ -95,5 +96,13 @@ public class Usuario {
 
     public void setSenha(String senha) {
         this.senha = senha;
+    }
+
+    public boolean isAtivo() {return ativo; }
+
+    public void setAtivo(boolean ativo) {this.ativo = ativo; }
+
+    public void excluir() {
+        this.ativo = false; //seta campo ativo como falso
     }
 }
