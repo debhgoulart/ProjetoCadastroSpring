@@ -102,6 +102,10 @@ public class Usuario {
 
     public void setAtivo(boolean ativo) {this.ativo = ativo; }
 
+    public Endereco getEndereco() {return endereco; }
+
+    public void setEndereco(Endereco endereco) {this.endereco = endereco; }
+
     public void excluir() {
         this.ativo = false; //seta campo ativo como falso
     }

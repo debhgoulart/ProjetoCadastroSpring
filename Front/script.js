@@ -1,8 +1,9 @@
 const formulario =  document.getElementById('register-form')
 
 formulario.addEventListener('submit', function(event) {
+    console.log('teste1')
     event.preventDefault();
-    console.log('teste')
+    console.log('teste2')
     enviar();
 });
 
