@@ -15,7 +15,7 @@ public class UsuarioService {
 
     @Transactional
     public DadosUsuario findById(Long id) {
-        Usuario entity = repository.findById(id).get();
+        Usuario entity = repository.getReferenceById(id);
         DadosUsuario dto = new DadosUsuario(entity);
         return dto;
     }
